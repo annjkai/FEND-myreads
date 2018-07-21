@@ -18,10 +18,12 @@ class AppContainer extends Component {
                       <ol className="books-grid">
                           {this.props.books
                             .filter(book => book.shelf === "currentlyReading")
-                            .map((book) => 
+                            .map((book) =>
                                 <li key={book.id}>
-                                    <Book /*books={this.props.books}*/
-                                        bookAttributes={this.props.book}/>
+                                    <Book
+                                        url={book.imageLinks.thumbnail}
+                                        title={book.title}
+                                        authors={book.authors}/>
                                 </li>)}
                       </ol>
                     </div>
@@ -34,7 +36,10 @@ class AppContainer extends Component {
                             .filter(book => book.shelf === "wantToRead")
                             .map((book) =>
                                 <li key={book.id}>
-                                    <Book books={this.props.books}/>
+                                    <Book
+                                        url={book.imageLinks.thumbnail}
+                                        title={book.title}
+                                        authors={book.authors}/>
                                 </li>)}
                       </ol>
                     </div>
@@ -47,7 +52,10 @@ class AppContainer extends Component {
                             .filter(book => book.shelf === "read")
                             .map((book) =>
                                 <li key={book.id}>
-                                    <Book books={this.props.books}/>
+                                    <Book
+                                        url={book.imageLinks.thumbnail}
+                                        title={book.title}
+                                        authors={book.authors}/>
                                 </li>)}
                       </ol>
                     </div>
