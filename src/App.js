@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 // import * as BooksAPI from './BooksAPI'
-import './App.css'
+import './App.css';
+
 
 class BooksApp extends React.Component {
   state = {
+      books: [],
     /**
      * TODO: Instead of using this state variable to keep track of which page
      * we're on, use the URL in the browser's address bar. This will ensure that
@@ -15,9 +17,13 @@ class BooksApp extends React.Component {
 
   render() {
     return (
-        
+        <div className="app">
+            <div className="list-books-title">
+              <h1>MyReads</h1>
+            </div>
+        </div>
     )
   }
 }
 
-export default BooksApp
+export default BooksApp;
