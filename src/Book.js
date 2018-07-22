@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 class Book extends Component {
     render() {
-        console.log(this.props.bookAttributes);
-        console.log(this.props.bookTitle);
+        //console.log(this.props.bookTitle);
         return (
             <div className="book">
               <div className="book-top">

@@ -3,8 +3,7 @@ import Book from './Book';
 
 class AppContainer extends Component {
     render() {
-        //console.log('Props', this.props);
-        console.log(this.props.books.title);
+        //console.log(this.props.books.title);
         return (
             <div className="list-books">
               <div className="list-books-title">
