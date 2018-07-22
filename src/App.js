@@ -2,11 +2,12 @@ import React from 'react';
 import * as BooksAPI from './BooksAPI';
 import './App.css';
 import AppContainer from './AppContainer';
-//import BookSearch from './BookSearch';
+import BookSearch from './BookSearch';
 
 class BooksApp extends React.Component {
     state = {
-        books: []
+        books: [],
+        query: ""
     }
 
     componentDidMount() {
@@ -17,6 +18,10 @@ class BooksApp extends React.Component {
 
     updateShelf = (book, shelf) => {
         BooksAPI.update(book, shelf);
+        //re-render page on shelfChange
+        /*this.setState((prevState, props) => {
+            return(this.updateShelf)
+        })*/
     }
 
   render() {
@@ -24,8 +29,8 @@ class BooksApp extends React.Component {
       <div className="app">
         <AppContainer
             books={this.state.books}
-            updateShelf={this.updateShelf}
-         />
+            updateShelf={this.updateShelf} />
+        <BookSearch />
       </div>
     )
   }
