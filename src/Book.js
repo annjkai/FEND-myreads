@@ -5,7 +5,7 @@ class Book extends Component {
     render() {
         //console.log(this.props.updateShelf);
         var newBookObject = new updateBookObject(this.props.bookID);
-        console.log(newBookObject);
+        console.log(this.props.currentShelf);
 
         return (
             <div className="book">
@@ -13,7 +13,7 @@ class Book extends Component {
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${this.props.url}")` }}></div>
                 <div className="book-shelf-changer">
                   <select onChange={(event) =>
-                       this.props.updateShelf(newBookObject, event.target.value)}>
+                       this.props.updateShelf(newBookObject, event.target.value)} defaultValue={this.props.currentShelf}>
                     <option value="move" disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>
