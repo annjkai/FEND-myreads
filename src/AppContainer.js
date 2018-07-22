@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import Book from './Book';
 
 class AppContainer extends Component {
+
     render() {
-        //console.log(this.props.books.title);
+        //console.log(this.props.updateShelf);
         return (
             <div className="list-books">
               <div className="list-books-title">
@@ -20,9 +21,12 @@ class AppContainer extends Component {
                             .map((book) =>
                                 <li key={book.id}>
                                     <Book
+                                        bookID={book.id}
                                         url={book.imageLinks.thumbnail}
                                         title={book.title}
-                                        authors={book.authors}/>
+                                        authors={book.authors}
+                                        currentShelf={book.shelf}
+                                        updateShelf={this.props.updateShelf}/>
                                 </li>)}
                       </ol>
                     </div>
@@ -36,9 +40,12 @@ class AppContainer extends Component {
                             .map((book) =>
                                 <li key={book.id}>
                                     <Book
+                                        bookID={book.id}
                                         url={book.imageLinks.thumbnail}
                                         title={book.title}
-                                        authors={book.authors}/>
+                                        authors={book.authors}
+                                        currentShelf={book.shelf}
+                                        updateShelf={this.props.updateShelf}/>
                                 </li>)}
                       </ol>
                     </div>
@@ -52,9 +59,12 @@ class AppContainer extends Component {
                             .map((book) =>
                                 <li key={book.id}>
                                     <Book
+                                        bookID={book.id}
                                         url={book.imageLinks.thumbnail}
                                         title={book.title}
-                                        authors={book.authors}/>
+                                        authors={book.authors}
+                                        currentShelf={book.shelf}
+                                        updateShelf={this.props.updateShelf}/>
                                 </li>)}
                       </ol>
                     </div>
