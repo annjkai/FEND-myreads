@@ -8,9 +8,9 @@ import BookSearch from './BookSearch';
 class BooksApp extends React.Component {
     state = {
         books: []
-        //query: ""
     }
 
+//refactor updateAll into method
     componentDidMount() {
         BooksAPI.getAll().then((books) => {
             this.setState({books})
@@ -19,10 +19,9 @@ class BooksApp extends React.Component {
 
     updateShelf = (book, shelf) => {
         BooksAPI.update(book, shelf);
-        //re-render page on shelfChange
-        /*this.setState((prevState, props) => {
-            return(this.updateShelf)
-        })*/
+        BooksAPI.getAll().then((books) => {
+            this.setState({books})
+        })
     }
 
   render() {

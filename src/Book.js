@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 class Book extends Component {
 
     render() {
-        //console.log(this.props.updateShelf);
-        var newBookObject = new updateBookObject(this.props.bookID);
-        console.log(this.props.currentShelf);
+        const newBookObject = new updateBookObject(this.props.bookID);
+        //console.log(this.props.currentShelf);
 
         return (
             <div className="book">
               <div className="book-top">
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${this.props.url}")` }}></div>
+                {/*TEST: this.props.url ? `url("${this.props.url}")` : ''*/}
                 <div className="book-shelf-changer">
                   <select onChange={(event) =>
                        this.props.updateShelf(newBookObject, event.target.value)} defaultValue={this.props.currentShelf}>
