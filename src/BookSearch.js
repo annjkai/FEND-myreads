@@ -18,10 +18,18 @@ class BookSearch extends Component {
 
     updateBookSearch = (query) => {
         //if the user types a query, look for books that match
-        if(query) {
+        if (query) {
             //display books that match
             BooksAPI.search(query).then((queriedBooks) => {
-                this.setState({ queriedBooks })
+                //if the search query doesn't exist, then show no results
+                //many thanks to Maeva NAP from the FEND scholarship for
+                //pointing me in the right direction to solve this
+                //I also used this for reference: https://dev.to/sarah_chima/error-boundaries-in-react-3eib
+                if (queriedBooks.error) {
+                    this.setState({ queriedBooks: [] })
+                } else {
+                    this.setState({ queriedBooks })
+                }
             })
             //if there is no query, then show no results
         } else {
@@ -42,12 +50,13 @@ class BookSearch extends Component {
                     />
                 </div>
               </div>
+
               <div className="search-books-results">
                 <ol className="books-grid">
                     {this.state.queriedBooks
                         .map((queriedBook) =>
                         <li key={queriedBook.id}>
-                            <Book books={queriedBook}/>
+                            <Book book={queriedBook}/>
                         </li>
                     )}
                 </ol>
