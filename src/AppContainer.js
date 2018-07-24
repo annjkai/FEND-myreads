@@ -73,7 +73,7 @@ class AppContainer extends Component {
                 </div>
               </div>
               <div className="open-search">
-                <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+                <Link to="/search" /*onClick={() => this.setState({ showSearchPage: true })}*/>Add a book</Link>
               </div>
             </div>
         )
