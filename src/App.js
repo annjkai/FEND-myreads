@@ -7,8 +7,8 @@ import BookSearch from './BookSearch';
 
 class BooksApp extends React.Component {
     state = {
-        books: [],
-        query: ""
+        books: []
+        //query: ""
     }
 
     componentDidMount() {
