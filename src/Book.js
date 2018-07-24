@@ -4,12 +4,12 @@ class Book extends Component {
 
     render() {
         const newBookObject = new updateBookObject(this.props.bookID);
-        //console.log(this.props.currentShelf);
+        const book = this.props;
 
         return (
             <div className="book">
               <div className="book-top">
-                <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${this.props.url}")` }}></div>
+                <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.url}")` }}></div>
                 {/*TEST: this.props.url ? `url("${this.props.url}")` : ''*/}
                 <div className="book-shelf-changer">
                   <select onChange={(event) =>
@@ -22,8 +22,13 @@ class Book extends Component {
                   </select>
                 </div>
               </div>
-              <div className="book-title">{this.props.title}</div>
-              <div className="book-authors">{this.props.authors}</div>
+              <div className="book-title">{book.title}</div>
+              {/*separate author names*/}
+              {book.authors.map((authors, index) => (
+                  <div key={index}
+                       className="book-authors">{authors}</div>
+              ))}
+
             </div>
         )
     }
