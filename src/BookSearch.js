@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import * as BooksAPI from './BooksAPI';
 import {Link} from 'react-router-dom';
-import escapeRegExp from 'escape-string-regexp';
+//import escapeRegExp from 'escape-string-regexp';
 import Book from './Book';
 
 class BookSearch extends Component {
@@ -12,7 +12,7 @@ class BookSearch extends Component {
 
     //updates query based on input
     updateQuery = (query) => {
-        this.setState({query})
+        this.setState({ query })
         this.updateBookSearch(query)
     }
 
@@ -21,11 +21,11 @@ class BookSearch extends Component {
         if(query) {
             //display books that match
             BooksAPI.search(query).then((queriedBooks) => {
-                this.setState({queriedBooks})
+                this.setState({ queriedBooks })
             })
             //if there is no query, then show no results
         } else {
-            this.setState({queriedBooks: []})
+            this.setState({ queriedBooks: [] })
         }
     }
 
@@ -44,9 +44,10 @@ class BookSearch extends Component {
               </div>
               <div className="search-books-results">
                 <ol className="books-grid">
-                    {this.state.queriedBooks.map((queriedBook) =>
+                    {this.state.queriedBooks
+                        .map((queriedBook) =>
                         <li key={queriedBook.id}>
-                            <Book book={queriedBook}/>
+                            <Book books={queriedBook}/>
                         </li>
                     )}
                 </ol>

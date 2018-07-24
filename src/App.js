@@ -13,14 +13,14 @@ class BooksApp extends React.Component {
 //refactor updateAll into method
     componentDidMount() {
         BooksAPI.getAll().then((books) => {
-            this.setState({books})
+            this.setState({ books })
         })
     }
 
     updateShelf = (book, shelf) => {
         BooksAPI.update(book, shelf);
         BooksAPI.getAll().then((books) => {
-            this.setState({books})
+            this.setState({ books })
         })
     }
 
