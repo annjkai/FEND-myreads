@@ -6,7 +6,6 @@ import Book from './Book';
 class AppContainer extends Component {
 
     render() {
-
         //console.log(this.props.updateShelf);
         return (
             <div className="list-books">

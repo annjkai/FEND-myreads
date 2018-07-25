@@ -23,7 +23,7 @@ class BookSearch extends Component {
             BooksAPI.search(query).then((queriedBooks) => {
                 //if the search query doesn't exist, then show no results
                 //many thanks to Maeva NAP from the FEND scholarship for
-                //pointing me in the right direction to solve this
+                //her help in solving this
                 //I also used this for reference: https://dev.to/sarah_chima/error-boundaries-in-react-3eib
                 if (queriedBooks.error) {
                     this.setState({ queriedBooks: [] })
@@ -38,6 +38,7 @@ class BookSearch extends Component {
     }
 
     render() {
+        console.log(this.state.queriedBooks);
         return (
             <div className="search-books">
               <div className="search-books-bar">
@@ -56,7 +57,13 @@ class BookSearch extends Component {
                     {this.state.queriedBooks
                         .map((queriedBook) =>
                         <li key={queriedBook.id}>
-                            <Book book={queriedBook}/>
+                            <Book
+                                bookID={queriedBook.id}
+                                image={queriedBook.imageLinks.thumbnail}
+                                title={queriedBook.title}
+                                authors={queriedBook.authors}
+                                currentShelf="none"
+                                updateShelf={this.props.updateShelf}/>
                         </li>
                     )}
                 </ol>
