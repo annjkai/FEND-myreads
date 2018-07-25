@@ -24,7 +24,7 @@ class AppContainer extends Component {
                                 <li key={book.id}>
                                     <Book
                                         bookID={book.id}
-                                        image={book.imageLinks.thumbnail}
+                                        image={book.imageLinks}
                                         title={book.title}
                                         authors={book.authors}
                                         currentShelf="currentlyReading"
@@ -43,7 +43,7 @@ class AppContainer extends Component {
                                 <li key={book.id}>
                                     <Book
                                         bookID={book.id}
-                                        image={book.imageLinks.thumbnail}
+                                        image={book.imageLinks}
                                         title={book.title}
                                         authors={book.authors}
                                         currentShelf="wantToRead"
@@ -62,7 +62,7 @@ class AppContainer extends Component {
                                 <li key={book.id}>
                                     <Book
                                         bookID={book.id}
-                                        image={book.imageLinks.thumbnail}
+                                        image={book.imageLinks}
                                         title={book.title}
                                         authors={book.authors}
                                         currentShelf="read"

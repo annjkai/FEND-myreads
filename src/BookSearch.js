@@ -38,7 +38,7 @@ class BookSearch extends Component {
     }
 
     render() {
-        console.log(this.state.queriedBooks);
+        console.log(this.props.currentShelf);
         return (
             <div className="search-books">
               <div className="search-books-bar">
@@ -48,6 +48,7 @@ class BookSearch extends Component {
                     type="text"
                     placeholder="Search by title or author" value={this.state.query}
                     onChange={(event) => this.updateQuery(event.target.value)}
+                    defaultValue={this.props.currentShelf}
                     />
                 </div>
               </div>
@@ -59,7 +60,7 @@ class BookSearch extends Component {
                         <li key={queriedBook.id}>
                             <Book
                                 bookID={queriedBook.id}
-                                image={queriedBook.imageLinks.thumbnail}
+                                image={queriedBook.imageLinks}
                                 title={queriedBook.title}
                                 authors={queriedBook.authors}
                                 currentShelf="none"

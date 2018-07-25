@@ -5,13 +5,12 @@ class Book extends Component {
     render() {
         const newBookObject = new updateBookObject(this.props.bookID);
         const book = this.props;
-        //let imageAvailable = book.image;
 
         return (
             <div className="book">
               <div className="book-top">
-                <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.image}")` }}></div>
-
+                  {/*the image thumbnail is rendered conditionally as per this reference: https://reactjs.org/docs/conditional-rendering.html*/}
+                <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: book.image ? `url("${book.image.thumbnail}")` : ''}}></div>
                 <div className="book-shelf-changer">
                   <select onChange={(event) =>
                        this.props.updateShelf(newBookObject, event.target.value)} defaultValue={this.props.currentShelf}>
