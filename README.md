@@ -16,9 +16,9 @@ The app is a basic library that allows the user to search for and categorize boo
 
 The backend server is provided by Udacity. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods needed to perform necessary operations on the backend:
 
-* [`getAll`](#getall)
-* [`update`](#update)
-* [`search`](#search)
+* `getAll`
+* `update`
+* `search`
 
 ## Important
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
