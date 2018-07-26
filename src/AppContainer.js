@@ -25,7 +25,7 @@ class AppContainer extends Component {
                                         image={book.imageLinks}
                                         title={book.title}
                                         authors={book.authors}
-                                        currentShelf="currentlyReading"
+                                        currentShelf={book.shelf}
                                         updateShelf={this.props.updateShelf}/>
                                 </li>)}
                       </ol>
@@ -44,7 +44,7 @@ class AppContainer extends Component {
                                         image={book.imageLinks}
                                         title={book.title}
                                         authors={book.authors}
-                                        currentShelf="wantToRead"
+                                        currentShelf={book.shelf}
                                         updateShelf={this.props.updateShelf}/>
                                 </li>)}
                       </ol>
@@ -63,7 +63,7 @@ class AppContainer extends Component {
                                         image={book.imageLinks}
                                         title={book.title}
                                         authors={book.authors}
-                                        currentShelf="read"
+                                        currentShelf={book.shelf}
                                         updateShelf={this.props.updateShelf}/>
                                 </li>)}
                       </ol>

@@ -36,10 +36,12 @@ class BooksApp extends React.Component {
         {/*<Route path="/search" component={BookSearch}/>*/}
         <Route path="/search" render={() => (
             <BookSearch
+                book={this.state.books}
                 updateShelf={this.updateShelf} />
         )}/>
       </div>
     )
   }
 }
+
 export default BooksApp;
