@@ -1,13 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //import escapeRegExp from 'escape-string-regexp';
 import Book from './Book';
 
 class BookSearch extends Component {
     state= {
         query: "",
-        queriedBooks: []
+        //new array to handle books that are searched for
+        books: []
     }
 
     //updates query based on input
@@ -20,25 +21,23 @@ class BookSearch extends Component {
         //if the user types a query, look for books that match
         if (query) {
             //display books that match
-            BooksAPI.search(query).then((queriedBooks) => {
+            BooksAPI.search(query).then((books) => {
                 //if the search query doesn't exist, then show no results
-                //many thanks to Maeva NAP from the FEND scholarship for
-                //her help in solving this
+                //(many thanks to Maeva NAP from the FEND scholarship //for her help in solving this)
                 //I also used this for reference: https://dev.to/sarah_chima/error-boundaries-in-react-3eib
-                if (queriedBooks.error) {
-                    this.setState({ queriedBooks: [] })
+                if (books.error) {
+                    this.setState({ books: [] })
                 } else {
-                    this.setState({ queriedBooks })
+                    this.setState({ books })
                 }
             })
             //if there is no query, then show no results
         } else {
-            this.setState({ queriedBooks: [] })
+            this.setState({ books: [] })
         }
     }
 
     render() {
-        console.log(this.props.currentShelf);
         return (
             <div className="search-books">
               <div className="search-books-bar">
@@ -55,16 +54,16 @@ class BookSearch extends Component {
 
               <div className="search-books-results">
                 <ol className="books-grid">
-                    {this.state.queriedBooks
-                        .map((queriedBook) =>
-                        <li key={queriedBook.id}>
+                    {this.state.books
+                        .map((book) =>
+                        <li key={book.id}>
                             <Book
-                                bookID={queriedBook.id}
-                                image={queriedBook.imageLinks}
-                                title={queriedBook.title}
-                                authors={queriedBook.authors}
-                                currentShelf="none"
-                                updateShelf={this.props.updateShelf}/>
+                                bookID={book.id}
+                                image={book.imageLinks}
+                                title={book.title}
+                                authors={book.authors}
+                                updateShelf={this.props.updateShelf}
+                                currentShelf="none"/>
                         </li>
                     )}
                 </ol>
