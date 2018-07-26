@@ -12,6 +12,10 @@ The Udacity *MyReads - A Book Tracking App* project is part of both the *Front-e
 
 The app is a basic library that allows the user to search for and categorize books. Books can be added to one of three shelves ("Currently Reading", "Want to Read" and "Read") or removed from the main page ("None").
 
+## To Do
+
+Eventually, I'd like to return to create more components (e.g. for the shelves), and to update the UI.
+
 ## Backend Server
 
 The backend server is provided by Udacity. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods needed to perform necessary operations on the backend:

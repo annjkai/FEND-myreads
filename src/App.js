@@ -10,18 +10,21 @@ class BooksApp extends React.Component {
         books: []
     }
 
-//refactor updateAll into method
-    componentDidMount() {
+    //since the getAll() function needs to be called twice,
+    //I put it in a separate method
+    updateAllBooks() {
         BooksAPI.getAll().then((books) => {
             this.setState({ books })
         })
     }
 
+    componentDidMount() {
+        this.updateAllBooks()
+    }
+
     updateShelf = (book, shelf) => {
-        BooksAPI.update(book, shelf);
-        BooksAPI.getAll().then((books) => {
-            this.setState({ books })
-        })
+        BooksAPI.update(book, shelf)
+        this.updateAllBooks()
     }
 
   render() {
