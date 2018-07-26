@@ -22,9 +22,11 @@ class BooksApp extends React.Component {
         this.updateAllBooks()
     }
 
+    //implemented async function at suggestion of reviewer
     updateShelf = (book, shelf) => {
-        BooksAPI.update(book, shelf)
-        this.updateAllBooks()
+        BooksAPI.update(book, shelf).then(() => {
+            this.updateAllBooks()
+        })
     }
 
   render() {
