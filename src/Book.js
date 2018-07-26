@@ -13,7 +13,7 @@ class Book extends Component {
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: book.image ? `url("${book.image.thumbnail}")` : ''}}></div>
                 <div className="book-shelf-changer">
                   <select onChange={(event) =>
-                       this.props.updateShelf(newBookObject, event.target.value)} defaultValue={this.props.currentShelf}>
+                       this.props.updateShelf(newBookObject, event.target.value)} defaultValue={this.props.currentShelf || "none"}>
                     <option value="move" disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>
@@ -23,7 +23,8 @@ class Book extends Component {
                 </div>
               </div>
               <div className="book-title">{book.title}</div>
-              <div className="book-authors">{book.authors}</div>
+             {/*Ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join*/}
+              <div className="book-authors">{book.authors ? book.authors.join(", ") : ''}</div>
               {/*separate author names
               {book.authors.map((authors, index) => (
                   <div key={index}
