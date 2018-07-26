@@ -23,7 +23,8 @@ class BookSearch extends Component {
             //display books that match
             BooksAPI.search(query).then((queryBooks) => {
                 //if the search query doesn't exist, then show no results
-                //(many thanks to Maeva NAP from the FEND scholarship //for her help in solving this)
+                //(many thanks to Maeva NAP from the FEND scholarship
+                //for her help in solving this)
                 //I also used this for reference: https://dev.to/sarah_chima/error-boundaries-in-react-3eib
                 if (queryBooks.error) {
                     this.setState({ queryBooks: [] })
@@ -47,7 +48,6 @@ class BookSearch extends Component {
                     type="text"
                     placeholder="Search by title or author" value={this.state.query}
                     onChange={(event) => this.updateQuery(event.target.value)}
-                    //defaultValue={this.props.currentShelf}
                     />
                 </div>
               </div>
