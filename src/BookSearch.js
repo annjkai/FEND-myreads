@@ -39,26 +39,12 @@ class BookSearch extends Component {
 
     render() {
 
-
-        let updateQueryShelf = this.state.queryBooks.slice()
-        //console.log(this.state.queryBooks);
-        //console.log(updateQueryShelf);
-        updateQueryShelf.map((queryBook, index) => {
-
+        //assign searched books to the "none" shelf unless they are already //on a shelf, then display correct shelf
+        this.state.queryBooks.map((queryBook) => {
+            queryBook.shelf = "none"
             this.props.books.map((book) => {
-                if (queryBook.id === book.id) {
-                    queryBook.shelf = book.shelf
-                } else {
-                    queryBook.shelf = "none"
-                }
-            })
-            //console.log(queryBook.shelf)
-            //console.log(index)
-        })
-
-
-
-
+                queryBook.id === book.id ? queryBook.shelf=book.shelf : ""}
+            )})
 
         return (
             <div className="search-books">
@@ -84,9 +70,7 @@ class BookSearch extends Component {
                                 title={queryBook.title}
                                 authors={queryBook.authors}
                                 updateShelf={this.props.updateShelf}
-                                //currentShelf=''
                                 currentShelf={queryBook.shelf}
-                                //currentShelf={queryBook.shelf = "none"}
                                 />
                         </li>
                     )}
