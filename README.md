@@ -2,6 +2,8 @@
 
 **Project acceptance date: 27 July 2018**
 
+**[Live preview](https://ajk-myreads.netlify.com/)**
+
 The Udacity *MyReads - A Book Tracking App* project is part of both the *Front-end Web Development* Nanodegree and the *React Fundamentals* course. It was created based on a starter template provided by Udacity. Students were expected to add interactivity to the app by refactoring the static code in the template.
 
 ## Instructions
